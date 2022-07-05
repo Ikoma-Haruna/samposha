@@ -218,6 +218,8 @@ body {
     overflow: auto; }
   body.active {
     overflow: hidden !important; }
+    body.active #wrapper {
+      overflow: hidden !important; }
   body::-webkit-scrollbar {
     overflow: hidden;
     width: 7px;
@@ -279,9 +281,9 @@ body {
     margin: 0 0 7.5rem;
     overflow: hidden; }
     body h2 .Split {
-      -webkit-transform: translate(0%, 120%) rotate(20deg);
-      -ms-transform: translate(0%, 120%) rotate(20deg);
-      transform: translate(0%, 120%) rotate(20deg);
+      -webkit-transform: translate(0%, 130%) rotate(20deg);
+      -ms-transform: translate(0%, 130%) rotate(20deg);
+      transform: translate(0%, 130%) rotate(20deg);
       display: inline-block; }
     body h2.show .Split:nth-child(1) {
       -webkit-animation: titleAnim 1s 0.05s forwards;
@@ -710,6 +712,16 @@ header#header {
       opacity: 1; }
   header#header.white .Section .HeaderArea .MenuArea ul li a {
     color: #ffffff; }
+  header#header.white .Section .HeaderArea .menuBar span {
+    background-color: #ffffff; }
+  header#header.black .Section .HeaderArea .LogoArea {
+    background-image: url("../img/LogoB.png"); }
+    header#header.black .Section .HeaderArea .LogoArea::after {
+      opacity: 0; }
+  header#header.black .Section .HeaderArea .MenuArea ul li a {
+    color: #1a1a1a; }
+  header#header.black .Section .HeaderArea .menuBar span {
+    background-color: #1a1a1a; }
 
 #topPage section#KV .Section {
   padding: calc(11.4rem + 2rem * 2) 0 0 0; }
@@ -870,6 +882,63 @@ header#header {
       #topPage section#News .Section .Contents .Holder .Block:hover::before {
         opacity: 1; } }
 
+#aboutPage section#KV .Section {
+  padding: calc(11.4rem + 2rem * 2) 0 0 0; }
+  #aboutPage section#KV .Section .Contents {
+    position: relative;
+    height: 100%; }
+    #aboutPage section#KV .Section .Contents .bg {
+      width: 100%;
+      height: calc(100% - 2rem);
+      overflow: hidden; }
+      #aboutPage section#KV .Section .Contents .bg .img {
+        background-image: url("../img/aboutKV.jpg");
+        width: 100%;
+        height: 100%;
+        background-position: bottom center; }
+
+#aboutPage section#Member .Section .Contents h2 {
+  text-align: center; }
+
+#aboutPage section#Member .Section .Contents .Holder {
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: 7rem 6rem; }
+  #aboutPage section#Member .Section .Contents .Holder .Block {
+    width: calc((100% - 6rem * 4) / 5); }
+    #aboutPage section#Member .Section .Contents .Holder .Block .imgArea {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      position: relative;
+      overflow: hidden; }
+      #aboutPage section#Member .Section .Contents .Holder .Block .imgArea .img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: .5s;
+        -o-transition: .5s;
+        transition: .5s; }
+    #aboutPage section#Member .Section .Contents .Holder .Block .textArea {
+      margin: 2rem 0 0; }
+      #aboutPage section#Member .Section .Contents .Holder .Block .textArea .name {
+        font-size: 1.6rem;
+        line-height: 1.6rem; }
+      #aboutPage section#Member .Section .Contents .Holder .Block .textArea .pos {
+        font-size: 1.3rem;
+        line-height: 1.3rem;
+        margin: 1.1rem 0 0; }
+      #aboutPage section#Member .Section .Contents .Holder .Block .textArea p {
+        display: none; }
+    @media (hover: hover) and (pointer: fine) {
+      #aboutPage section#Member .Section .Contents .Holder .Block:hover {
+        cursor: pointer; }
+        #aboutPage section#Member .Section .Contents .Holder .Block:hover .imgArea .img {
+          -webkit-transform: scale(1.1);
+          -ms-transform: scale(1.1);
+          transform: scale(1.1); } }
+
 section#Contact {
   background-color: rgba(217, 216, 215, 0.34);
   -webkit-transition: .5s;
@@ -952,6 +1021,9 @@ footer {
       margin: 0 0 5rem; }
     body#topPage section#Service .Section .Contents .Holder .imgArea {
       width: 100%; }
+  body#topPage section#Projects {
+    padding: 5rem 0 0;
+    margin: -5rem 0 0; }
   body#topPage section#News .Section .Contents .Holder .Block {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; }
@@ -989,7 +1061,7 @@ footer {
       padding: 10rem 0; }
     body h2 {
       padding: .25rem 0;
-      margin: 0 0 6rem; }
+      margin: 0 0 5rem; }
     body header#header .Section {
       padding: 1rem 0; }
       body header#header .Section .HeaderArea .LogoArea {
@@ -1004,27 +1076,44 @@ footer {
           height: 1px;
           display: inline-block;
           background-color: #1a1a1a;
-          position: absolute; }
+          position: absolute;
+          -webkit-transition: .5s;
+          -o-transition: .5s;
+          transition: .5s; }
           body header#header .Section .HeaderArea .menuBar span:nth-child(1) {
             top: 0; }
           body header#header .Section .HeaderArea .menuBar span:nth-child(2) {
             top: 50%; }
           body header#header .Section .HeaderArea .menuBar span:nth-child(3) {
             top: 100%; }
+    body header#header.active .Section .HeaderArea .menuBar span:nth-child(1) {
+      -webkit-transform: rotate(25deg);
+      -ms-transform: rotate(25deg);
+      transform: rotate(25deg);
+      top: 50%; }
+    body header#header.active .Section .HeaderArea .menuBar span:nth-child(2) {
+      opacity: 0; }
+    body header#header.active .Section .HeaderArea .menuBar span:nth-child(3) {
+      -webkit-transform: rotate(-25deg);
+      -ms-transform: rotate(-25deg);
+      transform: rotate(-25deg);
+      top: 50%; }
     body #menuArea {
       position: fixed;
       top: 0;
       left: 0;
-      background-color: #ffffff;
       width: 100%;
-      z-index: -1;
-      opacity: 0;
+      z-index: 40;
       pointer-events: none;
-      -webkit-transition: .5s;
-      -o-transition: .5s;
-      transition: .5s; }
+      min-height: 100vh;
+      height: 100vh; }
       body #menuArea .Section {
-        height: 100%; }
+        height: 100%;
+        background-color: #ffffff;
+        opacity: 0;
+        -webkit-transition: .5s;
+        -o-transition: .5s;
+        transition: .5s; }
         body #menuArea .Section .MenuArea ul {
           font-size: 1.6rem;
           -ms-flex-wrap: wrap;
@@ -1056,9 +1145,9 @@ footer {
 
 @media only screen and (max-width: 480px) {
       body #menuArea.active {
-        z-index: 40;
-        opacity: 1;
         pointer-events: auto; }
+        body #menuArea.active .Section {
+          opacity: 1; }
     body#topPage section#KV .Section {
       padding: calc(11.4rem / 1.5 + 1rem * 2) 0 0 0; }
       body#topPage section#KV .Section .Contents .Header {
@@ -1067,24 +1156,27 @@ footer {
           margin: 0 0 2.5rem; }
     body#topPage section#Service .Section .Contents .Holder .textArea ul {
       font-size: 1.4rem; }
-    body#topPage section#Projects .Section {
-      padding: 0 0 10rem;
-      font-size: 1.4rem; }
-      body#topPage section#Projects .Section .Contents .Holder {
-        gap: 5rem 0; }
-        body#topPage section#Projects .Section .Contents .Holder .Block {
-          width: 100%; }
-          body#topPage section#Projects .Section .Contents .Holder .Block .textArea {
-            margin: 2.5rem 0 0; }
-            body#topPage section#Projects .Section .Contents .Holder .Block .textArea .ttl {
-              font-size: 2rem; }
-            body#topPage section#Projects .Section .Contents .Holder .Block .textArea .subttl {
-              font-size: 1.2rem;
-              line-height: 1.8rem;
-              margin: 1rem 0 1.8rem; }
-            body#topPage section#Projects .Section .Contents .Holder .Block .textArea p {
-              font-size: 1.4rem;
-              line-height: 2.1rem; }
+    body#topPage section#Projects {
+      padding: 10rem 0 0;
+      margin: -10rem 0 0; }
+      body#topPage section#Projects .Section {
+        padding: 0 0 10rem;
+        font-size: 1.4rem; }
+        body#topPage section#Projects .Section .Contents .Holder {
+          gap: 5rem 0; }
+          body#topPage section#Projects .Section .Contents .Holder .Block {
+            width: 100%; }
+            body#topPage section#Projects .Section .Contents .Holder .Block .textArea {
+              margin: 2.5rem 0 0; }
+              body#topPage section#Projects .Section .Contents .Holder .Block .textArea .ttl {
+                font-size: 2rem; }
+              body#topPage section#Projects .Section .Contents .Holder .Block .textArea .subttl {
+                font-size: 1.2rem;
+                line-height: 1.8rem;
+                margin: 1rem 0 1.8rem; }
+              body#topPage section#Projects .Section .Contents .Holder .Block .textArea p {
+                font-size: 1.4rem;
+                line-height: 2.1rem; }
     body#topPage section#News .Section {
       padding: 0 0 10rem; }
     body section#Contact .Section .Contents p {

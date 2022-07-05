@@ -31,14 +31,15 @@ $( document ).ready(function() {
 
 
 	//-_-_-_-_-  height　デバイスサイズ取得
-	var windowHeight = document.documentElement.clientHeight;
+	var targetHeight = document.documentElement.clientHeight;
 	var target = $('.deviseHeight');
 
-	target.height(windowHeight)
-	target.outerHeight(windowHeight)
+	target.height(targetHeight);
+	target.outerHeight(targetHeight);
 
 	$(window).resize(function() {
-		target.height( document.documentElement.clientHeight );
+		target.height(targetHeight);
+		target.outerHeight(targetHeight);
 	});
 
 
@@ -91,10 +92,12 @@ $( document ).ready(function() {
 		$('#header').toggleClass('active');
 		$('body').toggleClass('active');
 		$('#menuArea').toggleClass('active');
+		$('#header').toggleClass('black');
 	}
 
 	$('.menuBar, #menuArea .Contents').on('click', function() {
 		menu();
+
 	});
 
 	// $('#menuArea .Contents').on('click', function() {
@@ -195,14 +198,6 @@ $( document ).ready(function() {
 				'margin':'0',
 			});
 
-			// setTimeout(function(){
-			// 	addH1();
-			// 	addHeaderW();
-			// 	removeHeaderB();			
-			// },800);
-
-			// KVslider();
-
 		} else {
 	
 			setTimeout(function(){
@@ -246,14 +241,15 @@ $( document ).ready(function() {
 
 
 		//-_-_-_-_-  header
-		var header = $('header').outerHeight();
-		var headerHulf = header / 2;
-		var about = $('#About').offset().top;
-		var aboutMinus = about - headerHulf;
-		var service = $('#Service').offset().top;
-		var serviceMinus = service - headerHulf;
 
 		$(window).on("scroll", function() {
+			var header = $('header').outerHeight();
+			var headerHulf = header / 2;
+			var about = $('#About').offset().top;
+			var aboutMinus = about - headerHulf;
+			var service = $('#Service').offset().top;
+			var serviceMinus = service - headerHulf;
+	
 			var scrollTop = $(window).scrollTop();
 			if (scrollTop > aboutMinus && scrollTop < serviceMinus){
 				$('#header').addClass('white');
@@ -267,7 +263,7 @@ $( document ).ready(function() {
 
 
 
-		//-_-_-_-_-  move background
+		//-_-_-_-_-  move background - KV
 		var lFollowX = 0,
 		lFollowY = 0,
 		x = 0,

@@ -63,6 +63,9 @@
 				.imgArea
 					width: 100%
 
+			section#Projects
+				padding: 5rem 0 0
+				margin: -5rem 0 0
 
 			section#News .Section .Contents .Holder .Block
 				flex-wrap: wrap
@@ -135,7 +138,7 @@
 		// title
 		h2
 			padding: .25rem 0
-			margin: 0 0 6rem
+			margin: 0 0 5rem
 
 
 
@@ -146,29 +149,43 @@
 		//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 		//  _Header
 		//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-		header#header .Section
-			padding: 1rem 0
-			.HeaderArea
-				.LogoArea
-					width: calc(10.35rem / 1.5)
-					height: calc(11.4rem / 1.5)
+		header#header
+			.Section
+				padding: 1rem 0
+				.HeaderArea
+					.LogoArea
+						width: calc(10.35rem / 1.5)
+						height: calc(11.4rem / 1.5)
 
-				.menuBar
-					width: 3.5rem
-					height: 1.5rem
-					position: relative
-					span
-						width: 100%
-						height: 1px
-						display: inline-block
-						background-color: $black
-						position: absolute
-						&:nth-child(1)
-							top: 0
-						&:nth-child(2)
-							top: 50%
-						&:nth-child(3)
-							top: 100%
+					.menuBar
+						width: 3.5rem
+						height: 1.5rem
+						position: relative
+						span
+							width: 100%
+							height: 1px
+							display: inline-block
+							background-color: $black
+							position: absolute
+							transition: .5s
+							&:nth-child(1)
+								top: 0
+							&:nth-child(2)
+								top: 50%
+							&:nth-child(3)
+								top: 100%
+
+			&.active
+
+				.Section .HeaderArea .menuBar span
+					&:nth-child(1)
+						transform: rotate(25deg)
+						top: 50%
+					&:nth-child(2)
+						opacity: 0
+					&:nth-child(3)
+						transform: rotate(-25deg)
+						top: 50%
 
 
 
@@ -176,14 +193,16 @@
 			position: fixed
 			top: 0
 			left: 0
-			background-color: $white
 			width: 100%
-			z-index: -1
-			opacity: 0
+			z-index: 40
 			pointer-events: none
-			transition: .5s
+			min-height: 100vh
+			height: 100vh
 			.Section
 				height: 100%
+				background-color: $white
+				opacity: 0
+				transition: .5s
 				.MenuArea
 					ul
 						font-size: 1.6rem
@@ -211,11 +230,9 @@
 											width: 100%
 
 			&.active
-				z-index: 40
-				opacity: 1
 				pointer-events: auto
-
-
+				.Section
+					opacity: 1
 
 
 
@@ -244,25 +261,28 @@
 
 
 
-			section#Projects .Section
-				padding: 0 0 10rem
-				.Contents
-					.Holder
-						gap: 5rem 0
-						.Block
-							width: 100%
-							.textArea
-								margin: 2.5rem 0 0
-								.ttl
-									font-size: 2rem
-								.subttl
-									font-size: 1.2rem
-									line-height: 1.8rem
-									margin: 1rem 0 1.8rem
-								p
-									font-size: 1.4rem
-									line-height: 2.1rem
-				font-size: 1.4rem
+			section#Projects
+				padding: 10rem 0 0
+				margin: -10rem 0 0
+				.Section
+					padding: 0 0 10rem
+					.Contents
+						.Holder
+							gap: 5rem 0
+							.Block
+								width: 100%
+								.textArea
+									margin: 2.5rem 0 0
+									.ttl
+										font-size: 2rem
+									.subttl
+										font-size: 1.2rem
+										line-height: 1.8rem
+										margin: 1rem 0 1.8rem
+									p
+										font-size: 1.4rem
+										line-height: 2.1rem
+					font-size: 1.4rem
 
 
 

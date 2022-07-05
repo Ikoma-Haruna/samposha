@@ -118,8 +118,8 @@ body
 	
 	&.active
 		overflow: hidden!important
-		// #wrapper, #Footer
-		// 	opacity: 0
+		#wrapper
+			overflow: hidden!important
 
 
 	&::-webkit-scrollbar
@@ -231,7 +231,7 @@ body
 		margin: 0 0 7.5rem
 		overflow: hidden
 		.Split
-			transform: translate(0%, 120%) rotate(20deg)
+			transform: translate(0%, 130%) rotate(20deg)
 			display: inline-block
 
 		&.show
@@ -378,7 +378,20 @@ header#header
 					opacity: 1
 			.MenuArea ul li a
 				color: $white
+			.menuBar span
+				background-color: $white
 
+
+	&.black
+		.Section .HeaderArea
+			.LogoArea
+				background-image: url('../img/LogoB.png')
+				&::after
+					opacity: 0
+			.MenuArea ul li a
+				color: $black
+			.menuBar span
+				background-color: $black
 
 
 
@@ -399,8 +412,6 @@ header#header
 //  topPage
 //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 #topPage
-
-
 
 
 
@@ -515,7 +526,6 @@ header#header
 
 
 
-
 	section#Projects 
 
 		.Section 
@@ -605,6 +615,90 @@ header#header
 								transform: translate(3rem, 0)
 								&::before
 									opacity: 1
+
+
+
+
+
+
+
+
+
+
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+//  aboutPage
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+#aboutPage
+
+
+
+	section#KV
+		
+		.Section
+			padding: calc(11.4rem + 2rem * 2) 0 0 0
+			
+			.Contents
+				position: relative
+				height: 100%			
+
+				.bg
+					width: 100%
+					height: calc(100% - 2rem)
+					overflow: hidden
+					.img
+						background-image: url('../img/aboutKV.jpg')
+						width: 100%
+						height: 100%
+						background-position: bottom center
+
+
+
+	section#Member
+
+		.Section
+
+			.Contents
+
+				h2
+					text-align: center
+
+				.Holder
+					flex-wrap: wrap
+					gap: 7rem 6rem
+
+					.Block
+						width: calc((100% - 6rem * 4) / 5)
+						.imgArea
+							width: 100%
+							aspect-ratio: 1 / 1
+							position: relative
+							overflow: hidden
+							.img
+								position: absolute
+								top: 0
+								left: 0
+								width: 100%
+								height: 100%
+								transition: .5s
+						.textArea
+							margin: 2rem 0 0
+							.name
+								font-size: 1.6rem
+								line-height: 1.6rem
+							.pos
+								font-size: 1.3rem
+								line-height: 1.3rem
+								margin: 1.1rem 0 0
+							p
+								display: none
+
+						@include hover
+							&:hover
+								cursor: pointer
+								.imgArea .img
+									transform: scale(1.1)
+					
+
 
 
 
