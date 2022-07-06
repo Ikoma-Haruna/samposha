@@ -585,10 +585,10 @@ body {
     body h2.show .Split:nth-child(100) {
       -webkit-animation: titleAnim 1s 5s forwards;
       animation: titleAnim 1s 5s forwards; }
-  body a.moreBtn {
+  body .moreBtn {
     position: relative;
     color: #1a1a1a; }
-    body a.moreBtn::after {
+    body .moreBtn::after {
       content: '';
       position: absolute;
       width: 0%;
@@ -600,7 +600,7 @@ body {
       -o-transition: .5s;
       transition: .5s; }
     @media (hover: hover) and (pointer: fine) {
-      body a.moreBtn:hover::after {
+      body .moreBtn:hover::after {
         width: 100%; } }
 
 h1.Header, h2, .fontAnim {
@@ -908,7 +908,7 @@ header#header {
     width: calc((100% - 6rem * 4) / 5); }
     #aboutPage section#Member .Section .Contents .Holder .Block .imgArea {
       width: 100%;
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 197 / 205;
       position: relative;
       overflow: hidden; }
       #aboutPage section#Member .Section .Contents .Holder .Block .imgArea .img {
@@ -938,6 +938,68 @@ header#header {
           -webkit-transform: scale(1.1);
           -ms-transform: scale(1.1);
           transform: scale(1.1); } }
+
+#aboutPage #popup {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100vw;
+  background-color: rgba(255, 255, 255, 0.95);
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+  opacity: 0;
+  pointer-events: none; }
+  #aboutPage #popup .Section {
+    width: 100%;
+    height: 100%;
+    position: relative; }
+    #aboutPage #popup .Section .Contents {
+      -webkit-box-align: end;
+      -ms-flex-align: end;
+      align-items: flex-end;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between; }
+      #aboutPage #popup .Section .Contents .img {
+        width: 26rem;
+        aspect-ratio: 197 / 205; }
+      #aboutPage #popup .Section .Contents .textArea {
+        width: calc(100% - (26rem + 5.6rem)); }
+        #aboutPage #popup .Section .Contents .textArea .name .JP {
+          padding: 0 3rem 0 0;
+          position: relative; }
+          #aboutPage #popup .Section .Contents .textArea .name .JP::after {
+            content: '';
+            height: 1.8rem;
+            width: 2px;
+            background-color: #1a1a1a;
+            position: absolute;
+            right: 1.5rem;
+            top: 0;
+            bottom: 0;
+            margin: auto; }
+        #aboutPage #popup .Section .Contents .textArea .pos {
+          font-size: 1.3rem;
+          margin: 0 0 2rem; }
+        #aboutPage #popup .Section .Contents .textArea p {
+          font-size: 1.6rem;
+          line-height: 2.8rem; }
+    #aboutPage #popup .Section .btn {
+      position: fixed;
+      top: 6rem;
+      right: 8.25rem;
+      color: #1a1a1a;
+      font-size: 1.2rem; }
+      #aboutPage #popup .Section .btn.moreBtn::after {
+        bottom: 0; }
+      @media (hover: hover) and (pointer: fine) {
+        #aboutPage #popup .Section .btn:hover {
+          color: #1a1a1a;
+          cursor: pointer; } }
+  #aboutPage #popup.active {
+    opacity: 1;
+    pointer-events: auto; }
 
 section#Contact {
   background-color: rgba(217, 216, 215, 0.34);
@@ -1032,6 +1094,26 @@ footer {
       margin: 0 0 1rem; }
     body#topPage section#News .Section .Contents .Holder .Block p {
       width: 100%; }
+  body#aboutPage section#Member .Section .Contents .Holder {
+    gap: 3.5rem 3rem; }
+    body#aboutPage section#Member .Section .Contents .Holder .Block {
+      width: calc((100% - 3rem * 1) / 2); }
+  body#aboutPage #popup .Section {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    overflow: scroll; }
+    body#aboutPage #popup .Section .Contents {
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      width: 70%; }
+      body#aboutPage #popup .Section .Contents .img {
+        width: 100%; }
+      body#aboutPage #popup .Section .Contents .textArea {
+        width: 100%;
+        margin: 3rem 0 0; }
+    body#aboutPage #popup .Section .btn {
+      right: 4.25rem; }
   body footer .Section .Contents {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; }
@@ -1179,6 +1261,23 @@ footer {
                 line-height: 2.1rem; }
     body#topPage section#News .Section {
       padding: 0 0 10rem; }
+    body#aboutPage section#KV .Section {
+      padding: calc(11.4rem / 1.5 + 1rem * 2) 0 0 0; }
+    body#aboutPage section#Member .Section .Contents .Holder .Block .textArea .pos {
+      font-size: 1.2rem;
+      line-height: 1.2rem; }
+    body#aboutPage #popup .Section .Contents {
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      width: 80%; }
+      body#aboutPage #popup .Section .Contents .textArea .pos {
+        font-size: 1.2rem; }
+      body#aboutPage #popup .Section .Contents .textArea p {
+        font-size: 1.4rem;
+        line-height: 2.1rem; }
+    body#aboutPage #popup .Section .btn {
+      top: 3.5rem;
+      right: 1.75rem; }
     body section#Contact .Section .Contents p {
       font-size: 1.4rem; }
     body footer .Section {

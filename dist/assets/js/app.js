@@ -32,7 +32,7 @@ $( document ).ready(function() {
 
 	//-_-_-_-_-  height　デバイスサイズ取得
 	var targetHeight = document.documentElement.clientHeight;
-	var target = $('.deviseHeight');
+	var target = $('.deviceHeight');
 
 	target.height(targetHeight);
 	target.outerHeight(targetHeight);
@@ -292,15 +292,64 @@ $( document ).ready(function() {
 
 
 
+	}
+	
 
 
 
 
 
+
+
+
+
+
+	//-_-_-_-_-  aboutPage
+	if ( window.document.body.id === 'aboutPage' ) {
+
+
+
+		//-_-_-_-_- popup
+		var openBtn = $('section#Member .Section .Contents .Holder .Block');
+
+		var popup = $('#popup');
+		var popupImg = popup.find('.img');
+		var popupNameJP = popup.find('.name .JP');
+		var popupNameEN = popup.find('.name .EN');
+		var popupPos = popup.find('.pos');
+		var popupText = popup.find('p');
+
+		openBtn.click(function(){
+
+			$('#wrapper').addClass('active');
+			
+			var thisImg = $(this).find('.img').attr('data-img');
+			var thisNameJP = $(this).find('.name').html();
+			var thisNameEN = $(this).find('.name').attr('data-nameen');
+			var thisPos = $(this).find('.pos').html();
+			var thisText = $(this).find('p').html();
+
+			popup.addClass('active');
+			popupImg.css({
+				'background-image': 'url("' + thisImg + '")'
+			});
+			popupNameJP.html(thisNameJP);
+			popupNameEN.html(thisNameEN);
+			popupPos.html(thisPos);
+			popupText.html(thisText);
+
+
+		});
+	
+		var closeBtn = $('#popup .btn');
+	
+		closeBtn.click(function(){
+			$('#wrapper').removeClass('active');
+			popup.removeClass('active');
+		});
+	
 
 	}
-
-
 
 
 
