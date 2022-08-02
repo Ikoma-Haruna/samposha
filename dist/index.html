@@ -62,26 +62,21 @@
         <div class="row">つづける<span>人</span><span>と</span>つづける。</div>
       </div>
     </div>
-    <div class="LoadingPage scene02">
-      <div class="LoadingBlock flex">
-        <div class="Logo"></div>
-      </div>
-    </div>
   </div>
   <header id="header">
     <div class="Section">
       <div class="HeaderArea flexC widthL">
         <div class="LogoArea"><a href="./?top"></a></div>
         <div class="MenuArea pc">
-          <ul class="fontEN flexC">
+          <ul class="flexC">
             <li><a href="./about.html">ABOUT US</a></li>
             <li><a href="./?top#Service">SERVICE</a></li>
             <li><a href="./?top#Projects">PROJECTS</a></li>
-            <li><a href="./news.html">NEWS</a></li>
+            <li><a href="./?top#News">NEWS</a></li>
             <li><a class="targetBlank" href="">CONTACT</a></li>
           </ul>
         </div>
-        <div class="menuBar sp"><span></span><span></span><span></span></div>
+        <div class="menuBar sp"><span></span><span></span><span></span><span>MENU</span></div>
       </div>
     </div>
   </header>
@@ -89,11 +84,11 @@
     <div class="Section flexC">
       <div class="Contents widthL">
         <div class="MenuArea">
-          <ul class="fontEN flex">
+          <ul class="flex">
             <li><a href="./about.html">ABOUT US</a></li>
             <li><a href="./?top#Service">SERVICE</a></li>
             <li><a href="./?top#Projects">PROJECTS</a></li>
-            <li><a href="./news.html">NEWS</a></li>
+            <li><a href="./?top#News">NEWS</a></li>
             <li><a class="targetBlank" href="">CONTACT</a></li>
           </ul>
         </div>
@@ -215,11 +210,7 @@
         <div class="Section"> 
           <div class="Contents widthM">
             <h2>NEWS</h2>
-            <div class="Holder slideUp"><a class="Block flexC" href="./newsDetails.html"><span>2022/2/22</span>
-                <p>この時代の “お店” について一緒に学び、考え、つくっていくオンラインスクール開校。</p></a><a class="Block flexC" href="./newsDetails.html"><span>2022/2/22</span>
-                <p>この時代の “お店” について一緒に学び、考え、つくっていくオンラインスクール開校。</p></a><a class="Block flexC" href="./newsDetails.html"><span>2022/2/22</span>
-                <p>この時代の “お店” について一緒に学び、考え、つくっていくオンラインスクール開校。</p></a><a class="Block flexC" href="./newsDetails.html"><span>2022/2/22</span>
-                <p>この時代の “お店” について一緒に学び、考え、つくっていくオンラインスクール開校。</p></a></div>
+            <div class="Holder slideUp"></div>
           </div>
         </div>
       </section>
@@ -279,3 +270,54 @@
 <script type="text/javascript" src="./assets/js/jquery.min.js"></script>
 <script type="text/javascript" src="./assets/js/scrollreveal.min.js"></script>
 <script type="text/javascript" src="./assets/js/app.min.js"></script>
+<script>
+  $(function(){
+  	$.ajax({
+  		url: 'assets/php/rss.php',
+  		cache: false,
+  		dataType:"xml",
+  
+  		success: function(xml){
+  			$(xml).find('item').each(function(){
+  				var title = $(this).find('title').text();
+  				var url = $(this).find('link').text();
+  
+  				var dateYY = $(this).find('pubDate').text().slice(12, 16);
+  				var dateMM = $(this).find('pubDate').text().slice(8, 11);
+  				var dateDD = $(this).find('pubDate').text().slice(5, 7);
+  
+  				if(dateMM == 'Jan') {
+  					var dateMMnum = '01';
+  				} else if(dateMM == 'Feb') {
+  					var dateMMnum = '02';
+  				} else if(dateMM == 'Mar') {
+  					var dateMMnum = '03';
+  				} else if(dateMM == 'Apr') {
+  					var dateMMnum = '04';
+  				} else if(dateMM == 'May') {
+  					var dateMMnum = '05';
+  				} else if(dateMM == 'Jun') {
+  					var dateMMnum = '06';
+  				} else if(dateMM == 'Jul') {
+  					var dateMMnum = '07';
+  				} else if(dateMM == 'Aug') {
+  					var dateMMnum = '08';
+  				} else if(dateMM == 'Sep') {
+  					var dateMMnum = '09';
+  				} else if(dateMM == 'Oct') {
+  					var dateMMnum = '10';
+  				} else if(dateMM == 'Nov') {
+  					var dateMMnum = '11';
+  				} else if(dateMM == 'Dec') {
+  					var dateMMnum = '12';
+  				}
+  
+  				var html = '<a class="Block flexC" href="' + url + '" target="_blank"><span>' + dateYY + '/' + dateMMnum + '/' + dateDD +' </span><p>' + title + '</p></a>'
+  
+  				$("section#News .Contents .Holder").append(html);
+  
+  			});
+  		}
+  	});
+  });
+</script>

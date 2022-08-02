@@ -122,27 +122,28 @@ body
 			overflow: hidden!important
 
 
-	&::-webkit-scrollbar
-		overflow: hidden
-		width: 7px
-		background: $white
+	// &::-webkit-scrollbar
+	// 	overflow: hidden
+	// 	width: 7px
+	// 	background: $white
+	// 	position: fixed
 
-		&:horizontal
-			height: 1px
+	// 	&:horizontal
+	// 		height: 1px
 
-	&::-webkit-scrollbar-button
-		display: none
+	// &::-webkit-scrollbar-button
+	// 	display: none
 
-	&::-webkit-scrollbar-piece
-		background: $white
+	// &::-webkit-scrollbar-piece
+	// 	background: $white
 
-		&:start
-			background: $white
+	// 	&:start
+	// 		background: $white
 
-	&::-webkit-scrollbar-thumb,
-	&::-webkit-scrollbar-corner
-		background: #a8a7a7
-		border-radius: 3.5px
+	// &::-webkit-scrollbar-thumb,
+	// &::-webkit-scrollbar-corner
+	// 	background: #a8a7a7
+	// 	border-radius: 3.5px
 
 
 
@@ -185,8 +186,8 @@ body
 
 
 	.widthL
-		max-width: 128rem
-		width: 90%
+		// max-width: 128rem
+		width: calc(100% - 8rem)
 		margin: 0 auto
 
 	.widthM
@@ -320,6 +321,7 @@ header#header
 
 		.HeaderArea
 			justify-content: space-between
+			align-items: flex-start
 
 
 			.LogoArea
@@ -328,6 +330,7 @@ header#header
 				background-image: url('../img/LogoB.png')
 				position: relative
 				transition: .25s
+				// opacity: 0
 				a
 					width: 100%
 					height: 100%
@@ -347,6 +350,7 @@ header#header
 
 
 			.MenuArea
+				margin: 1rem 0 0
 				ul
 					font-size: 1.4rem
 					gap: 0 2.1rem
@@ -418,7 +422,8 @@ header#header
 	section#KV
 		
 		.Section
-			padding: calc(11.4rem + 2rem * 2) 0 0 0
+			// padding: calc(11.4rem + 2rem * 2) 0 0 0
+			padding: 9rem 0 0
 			
 			.Contents
 				position: relative
@@ -434,10 +439,14 @@ header#header
 					z-index: 3
 					font-size: 2.65rem
 					// width: 27rem
-					height: 16rem
+					height: 19rem
 					text-align: center
+					// opacity: 0
+					letter-spacing: .25rem
 					.row
-						margin: 0 0 3.5rem
+						// margin: 0 0 3.5rem
+						margin: 0 0 2.75rem
+						padding: 0.75rem 0
 						&:last-child
 							margin: 0
 
@@ -616,6 +625,9 @@ header#header
 								&::before
 									opacity: 1
 
+						&:nth-child(n + 5)
+							display: none
+
 
 
 
@@ -764,7 +776,82 @@ header#header
 		&.active
 			opacity: 1
 			pointer-events: auto
-					
+	
+
+
+
+
+
+
+
+
+
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+//  projectsDetails
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+#projectsDetails
+
+
+
+	section#Projects
+		
+		.Section
+			padding: calc(11.4rem + 2rem * 2) 0 0 0
+
+			.Contents
+				margin: 5rem auto 0
+
+				.Holder
+
+					.Header
+						h2
+							font-size: 4.5rem
+							line-height: 4.5rem
+							margin: 0
+						.subttl
+							font-size: 1.4rem
+							line-height: 2.5rem
+							margin: 3rem 0 6.4rem
+						p
+							font-size: 1.6rem
+							line-height: 2.6rem
+							margin: 0 0 2.7rem
+						ul
+							display: flex
+							font-size: 1.4rem
+							line-height: 2.5rem
+							gap: 1.5rem
+							a
+								color: $fontB
+								position: relative
+								transition: .25s
+								&::after
+									content: ''
+									position: absolute
+									width: 0%
+									height: 2px
+									background-color: $yellow
+									bottom: -.5rem
+									left: 0
+									transition: .5s
+								@include hover
+									&:hover
+										&::after									
+											width: 100%
+
+				.GalleryBlock
+					margin: 8.3rem auto 12rem
+					display: flex
+					gap: 4rem
+					flex-wrap: wrap
+					img
+						width: calc(50% - 2rem)
+						&:first-child
+							width: 100%
+
+
+
+				
 
 
 
